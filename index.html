@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A multi-language news reader demonstrating HTML5 internationalization (i18n), RTL text direction, and bidi isolation.">
+  <title>Global News Portal | Multi-Language Reader</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Language Switcher Header -->
+  <header role="banner">
+    <div class="header-container">
+      <h1 class="logo">Global Pulse News</h1>
+      
+      <!-- Language Selector -->
+      <div class="lang-selector">
+        <label for="language-select" id="lang-label">Language / भाषा / اللغة:</label>
+        <select id="language-select" aria-labelledby="lang-label">
+          <option value="en" selected>English (LTR)</option>
+          <option value="hi">हिन्दी - Hindi (LTR)</option>
+          <option value="ar">العربية - Arabic (RTL)</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main News Content -->
+  <main id="main-content">
+    
+    <article class="news-article" id="article-container">
+      
+      <!-- Metadata Header -->
+      <header class="article-header">
+        <span class="category" id="art-category">Technology</span>
+        <h1 id="art-title">Global AI Summit 2025 Announced in New Delhi</h1>
+        
+        <div class="article-meta">
+          <time datetime="2025-10-15" id="art-date">October 15, 2025</time> | 
+          <span id="art-author-label">By</span> 
+          <!-- <bdi> isolates names in different scripts so they don't break layout direction -->
+          <bdi class="author-name">Aarav Sharma</bdi>
+        </div>
+      </header>
+
+      <!-- Featured Image -->
+      <figure>
+        <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&w=1000&q=80" alt="Tech summit conference hall with stage lights">
+        <figcaption id="art-caption">Delegates attending the opening ceremony of the tech summit.</figcaption>
+      </figure>
+
+      <!-- Article Body Content -->
+      <div class="article-body">
+        <p class="lead-p" id="art-p1">
+          Leaders from over 50 countries are gathering to discuss the ethical future of Artificial Intelligence and quantum computing standards.
+        </p>
+
+        <p id="art-p2">
+          The summit aims to establish unified global policies for AI safety, open-source technology sharing, and digital infrastructure expansion across developing economies.
+        </p>
+
+        <!-- Quote block demonstrating inline language switching using <p lang="..."> -->
+        <blockquote id="art-quote">
+          <p id="art-quote-text">"Innovation must be accessible, safe, and beneficial to every human being regardless of geography."</p>
+          <cite>— <bdi>Dr. Sarah Jenkins</bdi></cite>
+        </blockquote>
+
+        <p id="art-p3">
+          Special workshops will also focus on regional language technology development, ensuring non-English speaking populations benefit from machine learning tools.
+        </p>
+      </div>
+
+      <!-- User Comments Section showing Bi-directional Isolation (<bdi>) -->
+      <section class="comments-section" aria-labelledby="comments-title">
+        <h2 id="comments-title">Community Reactions</h2>
+        
+        <div class="comment-card">
+          <!-- BDI prevents Arabic usernames from breaking punctuation in English layout, and vice versa -->
+          <p class="comment-user">User: <bdi>مستخدم_جديد</bdi> (Score: +12)</p>
+          <p class="comment-text">This initiative will greatly benefit regional developers!</p>
+        </div>
+
+        <div class="comment-card">
+          <p class="comment-user">User: <bdi>राजेश_कुमार</bdi> (Score: +8)</p>
+          <p class="comment-text">Looking forward to the language tech sessions.</p>
+        </div>
+      </section>
+
+    </article>
+
+  </main>
+
+  <footer role="contentinfo">
+    <p>&copy; 2025 Global Pulse Media. Supported languages: <span lang="en">English</span>, <span lang="hi">हिन्दी</span>, <span lang="ar" dir="rtl">العربية</span>.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
